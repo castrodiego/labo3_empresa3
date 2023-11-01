@@ -1,1 +1,1 @@
-# labo3_empresa3
+# Repo de la Empresa 3 (Labo 3)
