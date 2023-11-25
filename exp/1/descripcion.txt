@@ -1,0 +1,34 @@
+* Optimización Bayesiana
+CANT_ITERACIONES_OPT_BAY = 200
+CANT_SEMILLAS = 20
+MAX_BIN_PARAM= 255 o 1023
+tipos_transf = ['sin_transformacion', 'normalizacion', 'estandarizacion']
+
+periodo_inicio=201701 #inclusive
+train_periodo_limite = 201810 #inclusive
+validate_periodo = 201812
+train_all_periodo_limite = 201812 #inclusive
+holdout_periodo = 201902
+
+lgb_params = {
+        'objective': 'regression', 
+        'first_metric_only': True,
+        'boost_from_average': True,
+        'max_depth':-1,
+        'lambda_l1': 0.0,
+        'lambda_l2': 0.0,
+        'min_gain_to_split':0.0,
+        'force_row_wise':True,
+        'feature_pre_filter':False,
+        'metric': "None",
+        'max_bin': MAX_BIN_PARAM,
+        'learning_rate': trial.suggest_categorical('learning_rate', [0.01,0.05,0.1,0.2,0.5,0.9]),
+        'num_leaves' : trial.suggest_int('num_leaves', 1, 1000),
+        'feature_fraction': trial.suggest_categorical('feature_fraction', [0.3,0.4,0.5,0.6,0.7,0.8,0.9, 1.0]),
+        'min_data_in_leaf': trial.suggest_int('min_data_in_leaf', 1, 100),
+        'bagging_freq':trial.suggest_int('bagging_freq', 1, 10),
+        'bagging_fraction': trial.suggest_categorical('bagging_fraction',[0.7,0.75,0.8,0.85,0.9,0.95]),
+        'extra_trees':trial.suggest_categorical('extra_trees',[True,False]),
+        'verbose':-100,
+        'num_threads':-1
+    }
