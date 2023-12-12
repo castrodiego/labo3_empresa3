@@ -29,15 +29,15 @@ ARCH_PRODUCTOS_PREDICCION_FUTURE="datasets/productos_a_predecir_201912.csv"
 ###### FEATURE ENGINEERING ######
 #################################
 NUM_LAGS_PARAM = 15
-FAMILIA_FEATURES_TEMP_PARAM = ["rolling_std"]#,"lags","delta_lags","rolling_mean","rolling_std","rolling_sum","bollinger_bands"]
+FAMILIA_FEATURES_TEMP_PARAM =["lags","delta_lags","rolling_mean","rolling_std","rolling_sum","bollinger_bands"]
 
 ###########################
 ###### ENTRENAMIENTO ######
 ###########################
 CANT_ITERACIONES_OPT_BAY_PARAM = 30
 
-#MAX_BIN_PARAM=255
-MAX_BIN_PARAM=1023
+MAX_BIN_PARAM=255
+#MAX_BIN_PARAM=1023
 
 #OBJECTIVE_PARAM = "tweedie"
 OBJECTIVE_PARAM = "regression"
