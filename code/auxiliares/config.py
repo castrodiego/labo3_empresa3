@@ -29,13 +29,13 @@ TIPO_TRANSF_PARAM = "estandarizacion"
 #################################
 NUM_LAGS_PARAM = 15
 FAMILIA_FEATURES_TEMP_PARAM =["lags","delta_lags","rolling_mean","rolling_std","rolling_sum","bollinger_bands"]
-AMPLIA_FEATURES_PARAM=["cat1"]#,"cat2","cat3","customer_id","product_id"]
+AMPLIA_FEATURES_PARAM=["cat1","cat2","cat3"] #,"customer_id","product_id"]
 
 
 ###########################
 ###### ENTRENAMIENTO ######
 ###########################
-CANT_ITERACIONES_OPT_BAY_PARAM = 30
+CANT_ITERACIONES_OPT_BAY_PARAM = 1
 
 MAX_BIN_PARAM=255
 #MAX_BIN_PARAM=1023
@@ -60,6 +60,6 @@ NUM_LEAVES_UPPER_PARAM=1024
 L1_UPPER_PARAM=1000.0
 L2_UPPER_PARAM=1000.0
 
-CANT_SEMILLAS=10
+CANT_SEMILLAS=1
 OFFSET_EVAL_HOLDOUT = 0
-CANT_EVAL_HOLDOUT = 5
+CANT_EVAL_HOLDOUT = 1
