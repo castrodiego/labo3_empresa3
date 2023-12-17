@@ -1,4 +1,5 @@
 import numpy as np
+import config
 
 ## Normalizacion
 def normalizar_valor(valor,minimo,maximo):
@@ -48,3 +49,25 @@ def destransformar_valor(tipo_transf,valor,var1,var2):
         return desestandarizar_valor(valor,var1,var2)
     else:
         return valor
+
+def error_rate_transf(y, y_pred):
+    y_pred = np.array(y_pred)
+    
+    #Destransformo
+    df_calculo = GLOBAL_PRODUCT_IDS.copy()
+    df_calculo["y"] = y
+    df_calculo["y_destransformado"]=df_calculo.apply(lambda row: destransformar_valor(config.TIPO_TRANSF_PARAM,row["y"],row["valor_1"],row["valor_2"]),axis=1)
+
+    df_calculo["y_pred"] = y_pred
+    df_calculo["y_pred_destransformado"]=df_calculo.apply(lambda row: destransformar_valor(config.TIPO_TRANSF_PARAM,row["y_pred"],row["valor_1"],row["valor_2"]),axis=1)
+
+    y = df_calculo.y_destransformado
+    y_pred = df_calculo.y_pred_destransformado
+    
+    #Las predicciones negativas se convierten a 0
+    y_pred = np.maximum(y_pred, 0)
+    
+    dif_abs = sum(abs(y - y_pred))
+    suma_real = sum(y)
+    return round(100*dif_abs/suma_real,2)
+
