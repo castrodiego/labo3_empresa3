@@ -14,8 +14,13 @@ def error_rate(y, y_pred):
     
     dif_abs = sum(abs(y - y_pred))
     suma_real = sum(y)
-    
-    return round(100*dif_abs/suma_real,2)
+
+    if suma_real > 0:
+        er = round(100*dif_abs/suma_real,2)
+    else:
+        er = 0
+        
+    return er
 
 def print_error_rate_total_y_cat(df_pred):
     error_rate_total = error_rate(df_pred.tn_real,df_pred.tn_pred)

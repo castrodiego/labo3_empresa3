@@ -29,12 +29,12 @@ def semillerio(lgbtrain_all, lgb_params, best_iteration, X, cant_semillas):
     
     for i in range(0,cant_semillas):
         seed = random.randint(1,99999999999999)
+        
         lgb_params_new = {**lgb_params, **{"seed":seed}}
 
         final_model = lgb.train(lgb_params_new, lgbtrain_all, num_boost_round=best_iteration)
 
         y_pred = final_model.predict(X)
-        
         y_pred_list.append(y_pred)
 
     y_pred_semillerio = np.sum(y_pred_list,axis=0)/cant_semillas

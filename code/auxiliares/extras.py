@@ -9,9 +9,11 @@ def limpiar_prediccion(y_pred):
 def convertir_categoricas_prod(df_param):
     #Transformo todas las categoricas
     categories = CATEGORIAS_BASE
+    cols = df_param.columns
     
     for c in categories: 
-        df_param[c] = df_param[c].astype("category")   
+        if c in cols:
+            df_param[c] = df_param[c].astype("category")   
 
     return df_param
 
