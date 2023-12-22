@@ -1,21 +1,21 @@
 #################################
 ############# PERIODOS ##########
 #################################
-PERIODOS_EXCLUIR=[]#[201908]
+PERIODOS_EXCLUIR=[201908]#[]
 
 PERIODO_INICIO_PARAM=201701 #inclusive
-TRAIN_PERIODO_LIMITE_PARAM = 201810 #inclusive
-VALIDATE_PERIODO_PARAM = 201812
+TRAIN_PERIODO_LIMITE_PARAM = 201905 #201810 #inclusive
+VALIDATE_PERIODO_PARAM = 201907 #201812
 
 USAR_HOLDOUT_PARAM=True
-TRAIN_ALL_PERIODO_LIMITE_PARAM = 201812 #inclusive
-HOLDOUT_PERIODO_PARAM = 201902
+TRAIN_ALL_PERIODO_LIMITE_PARAM = 201907 #201812 #inclusive
+HOLDOUT_PERIODO_PARAM = 201910 #201902
 
-MODELO_FINAL_PERIODO_LIMITE_PARAM = 0 #201812
-FUTURE_PERIODO_PARAM = 0 #201902
+MODELO_FINAL_PERIODO_LIMITE_PARAM = 201910 #0 
+FUTURE_PERIODO_PARAM = 201912 #0
 
-ARCH_PRODUCTOS_PREDICCION_ENTRENAMIENTO="datasets/productos_a_predecir_201902.csv"
-ARCH_PRODUCTOS_PREDICCION_FUTURE="" #"datasets/productos_a_predecir_201912.csv"
+ARCH_PRODUCTOS_PREDICCION_ENTRENAMIENTO="datasets/productos_a_predecir_201912.csv" #"datasets/productos_a_predecir_201902.csv"
+ARCH_PRODUCTOS_PREDICCION_FUTURE="datasets/productos_a_predecir_201912.csv" #""
 
 
 #################################
@@ -28,8 +28,8 @@ ARCH_PRODUCTOS_PREDICCION_FUTURE="" #"datasets/productos_a_predecir_201912.csv"
 ###### FEATURE ENGINEERING ######
 #################################
 NUM_LAGS_PARAM = 5
-FAMILIA_FEATURES_TEMP_PARAM =["lags"]#,"delta_lags","rolling_mean","rolling_std","rolling_sum","bollinger_bands"]
-AMPLIA_FEATURES_PARAM=[]#["cat1","cat2","cat3"]#,"customer_id","product_id"]
+FAMILIA_FEATURES_TEMP_PARAM =["lags","delta_lags","rolling_sum"] #,"rolling_mean","rolling_std","rolling_sum","bollinger_bands"]
+AMPLIA_FEATURES_PARAM=["product_id","customer_id","cat1","cat2","cat3"]#["cat1","cat2","cat3"]#,"customer_id","product_id"]
 
 
 ###########################
